@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+        <a href="/flights" id="all" class="nav-link"><span class="nav-link-span"><span class="u-nav">All Flights</span></span></a>
+        <a href="/flights/new" id="new" class="nav-link active"><span class="nav-link-span"><span class="u-nav">New Flight</span></span></a>
+      </div>
+    </nav>
+  </header>
+<main>
+<div class="top"><h2>New Flight</h2></div>
+<div class="forms">
+<form action="/flights" method="POST">
+  <label>Airline:</label>
+      <input type="string" name="airline">
+<br>
+  <label>Airport:</label>
+  <input type="string" name="airport">
+<br>
+  <label>Flight Number:</label>
+    <input type="number" name="flightNo" required>
+<br>
+  <label>Departs:</label>
+    <input type="datetime-local" name="departs" value="<%= departsDate %>">
+<br>
+  <input type="submit" value="Add Flight">
+</form>
+</div>
+</main>

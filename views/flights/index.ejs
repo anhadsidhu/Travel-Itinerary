@@ -1,0 +1,35 @@
+<%- include('../partials/header') %>
+        <a href="/flights" id="all" class="nav-link active"><span class="nav-link-span"><span class="u-nav">All Flights</span></span></a>
+        <a href="/flights/new" id="new" class="nav-link"><span class="nav-link-span"><span class="u-nav">New Flight</span></span></a>
+      </div>
+    </nav>
+  </header>
+  <main>
+  <div class="top"><h2>Travel Itinerary</h2></div>
+  <div class="table">
+  <table class="tbl">
+    <thead>
+      <tr>
+        <th class="title">Airline</th>
+        <th class="title">Airport</th>
+        <th class="title">Flight #</th>
+        <th class="title">Departure Date</th>
+        <th class="title"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% flights.forEach((f) => { %>
+        <tr>
+          <td class="airline"><%= f.airline %></td>
+          <td class="airport"><%= f.airport %></td>
+          <td class="flightNo"><%= f.flightNo %></td>
+          <td class="flightDeparts"> <%= f.departs %></td>
+          <td class="details"><a href="/flights/<%= f.id %>"><div class="button">Details</div></a></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>
+  </main>
+</body>
+</html>

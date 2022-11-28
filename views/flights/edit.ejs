@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+<a href="/flights" id="all" class="nav-link active"><span class="nav-link-span"><span class="u-nav">All Flights</span></span></a>
+<a href="/flights/new" id="new" class="nav-link"><span class="nav-link-span"><span class="u-nav">New Flight</span></span></a>
+</div>
+</nav>
+</header>
+
+<main>
+    <h1><%= title %></h1>
+    <form class="forms" action="/flights/<%= flight._id %>?_method=PUT" id="new-form" method="POST">
+      <label>Airline:
+        <input class="edit-details" type="text" name="airline" value="<%= flight.airline %>" id="airline-input">
+      </label><br>
+      <label>Airport:
+        <input class="edit-details"  text = "text" name="airport" value="<%= flight.airport %>" id="airport-input">
+      </input>
+      </label><br>
+      <label>Flight Number:
+        <input class="edit-details" type="text" name="flightNo" value="<%= flight.flightNo %>">
+      </label><br>
+      <label>Departing Date:
+        <input class="edit-details" type="datetime-local" name="departs" value="<%= flight.departs %>">
+      </label><br>
+      <input type="submit" value="Save Flight">
+    </form>
+  </main>
+
+  <%- include('../partials/footer') %>

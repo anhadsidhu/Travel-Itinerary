@@ -1,0 +1,112 @@
+<%- include('../partials/header') %>
+        <a href="/flights/<%= flight._id %>" id="all" class="nav-link active"><span class="nav-link-span"><span class="u-nav">Flight Details</span></span></a>
+        <a href="/flights" class="nav-link"><span class="nav-link-span"><span class="u-nav">All Flights</span></span></a>
+        <a href="/flights/new" class="nav-link"><span class="nav-link-span"><span class="u-nav">New Flight</span></span></a>
+        <a href="/flights/<%= flight._id %>/edit" class="nav-link"><span class="nav-link-span"><span class="u-nav">Edit Flight</span></span></a>
+      </div>
+    </nav>
+  </header>
+<main>
+<div class="top"><h2>Flight Details</h2></div>
+<section id="show-page">
+  <div class="table">
+    <table class="tb1">
+      <thead>
+        <tr>
+          <th class="airline">Airline:</th>
+          <td class="td1"><%= flight.airline %> </td>
+        </tr>
+        <tr>
+          <th>Airport:</th>
+          <td class="td1"><%= flight.airport %> </td>
+        </tr>
+        <tr>
+          <th>Flight #:</th>
+          <td class="td1"><%= flight.flightNo %> </i></td>
+        </tr>
+        <tr>
+          <th>Departure:</th>
+          <td class="td1"><%= flight.departs %> </i></td>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div><h2>Destination(s):</h2></div>
+  <% if (flight.destination.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Airport</th>
+        <th>Arrival Date</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="tb1">
+      <% flight.destination.forEach((f) => { %>
+      <tr>
+        <th class="dest"><%= f.airport %></th>
+        <td class="td1"><%= f.arrival %></td>
+        <td class="detail">
+          <form action="/destinations/<%= flight._id %>/<%= f._id %>?_method=DELETE" method="POST">
+          <button class="delete" type="submit">
+            <span>remove</span>
+            <div class="icon">
+            </div>
+          </button>
+          </form>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <% } %>
+</section>
+<div class="forms">
+<h2>Enter a Destination:</h2>
+<form action="/flights/<%= flight._id %>/destinations" method="POST">
+
+  <label>Destination:</label>
+  <input type="string" name="airport"/><br>
+
+  <label>Arrival Time:</label>
+  <input type="datetime-local" name="arrival" value=/><br>
+  <input type="submit" value="Submit" />
+</form>
+</div>
+<br>
+<h2>Tickets:  <a href="/flights/<%= flight.id %>/tickets/new">
+  <div class="button-ticket">New Ticket</div></h2>
+  <% if (ticket.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Seat</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="tb1">
+      <% ticket.forEach((t) => { %>
+      <tr>
+        <th class="dest">
+
+            <%= t.seat %></th>
+        <td class="td1">
+
+          <%= t.price %></td>
+        <td class="detail">
+          <form action="/tickets/<%= t.flight %>/<%= t._id %>?_method=DELETE" method="POST">
+          <button class="delete" type="submit">
+            <span>remove</span>
+            <div class="icon">
+            </div>
+          </button>
+          </form>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <% } %>
+<form action="/flights/<%= flight._id %>?_method=DELETE" method="POST" ><button class="remove" type="submit">DELETE FLIGHT</button></form>
+</main>

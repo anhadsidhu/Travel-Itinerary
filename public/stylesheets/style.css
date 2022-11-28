@@ -1,0 +1,333 @@
+html {
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-color: #100108;
+  }
+
+  body {
+	color: white;
+	padding: 50px;
+	font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+	line-height: 1.5em;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	height: 100vw;
+  width: 100vw;
+  }
+  main {
+	margin-top:  70px;
+  }
+
+
+  #nav-wrapper {
+	overflow: hidden;
+	width: 100%;
+	margin: 0 auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+
+  }
+  #nav {
+	background-color: #fff;
+	box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	font-family: "Saira Semi Condensed", sans-serif;
+	height: 4em;
+	overflow: hidden;
+	background-color: #100108;
+  }
+  #nav.nav-visible {
+	height: 100%;
+	overflow: auto;
+  }
+  .nav {
+	display: flex;
+	height: 4em;
+	line-height: 4em;
+	flex-grow: 1;
+  }
+  .nav-link, .logo {
+	padding: 0 1em;
+  }
+  span.gradient {
+	background: #99b529;
+	background: -webkit-linear-gradient(45deg,  #99b529, #100108);
+	background: linear-gradient(45deg,  #99b529, #100108);
+	padding: 0 1em;
+	position: relative;
+	right: 1em;
+	margin-right: auto;
+  }
+  span.gradient:hover {
+	animation-name: logo-hover;
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+	animation-timing-function: cubic-bezier(0.17, 0.57, 0.31, 0.85);
+  }
+  h1.logo {
+	font-weight: 300;
+	font-size: 1.75em;
+	line-height: 0.75em;
+	color: black;
+  }
+  .nav-link {
+	text-transform: uppercase;
+	text-align: center;
+	border-top: 0.5px solid #ddd;
+  }
+  .right a:link,.right a:visited,.right a:active {
+	text-decoration: none;
+	color: #99b529;
+  }
+  h1.logo a, a:active, a:hover, a:visited {
+	text-decoration: none;
+	color:black;
+  }
+  .nav a:hover {
+	text-decoration: wavy;
+  }
+  .right {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+  }
+  .btn-nav {
+	color: #99b529;
+	padding-left: 2em;
+	padding-right: 2em;
+  }
+  @media (min-width: 800px) {
+	#nav-wrapper {
+	  overflow: hidden;
+	}
+	#nav {
+	  overflow: hidden;
+	  flex-direction: row;
+	}
+	.nav-link {
+	  border-top: none;
+	}
+	.right {
+	  overflow: hidden;
+	  flex-direction: row;
+	  justify-content: flex-end;
+	  position: relative;
+	  left: 1.5em;
+	  height: auto;
+	}
+	.btn-nav {
+	  display: none;
+	}
+	.nav a:link.active, a:visited.active, a:active.active {
+	  background:#99b529;
+	  background: -webkit-linear-gradient(45deg, #99b529, #100108);
+	  background: linear-gradient(45deg, #99b529, #100108);
+	  color: #fff;
+	}
+	.nav-link-span {
+	  transform: skew(20deg);
+	  display: inline-block;
+	}
+	.nav-link {
+	  transform: skew(-20deg);
+	}
+	.nav-link:last-child {
+	  padding-right: 3em;
+	}
+	a:hover.nav-link:not(.active) {
+	  color:#fff;
+	  background: linear-gradient(45deg, #99b529, #100108);
+	}
+  }
+  table {
+	display: inline;
+  }
+  .top {
+  display: inline-block;
+	margin: 0 auto;
+	position: absolute;
+	top: -15px;
+	left: 42%;
+	color:   #99b529;
+	font-family: 'Raleway', sans-serif;
+	font-size: 25px;
+	z-index: 101;
+  }
+  .button {
+	display: inline-block;
+	background:#99b529;
+	color: black;
+	text-transform: uppercase;
+	padding: 2px 3px;
+	border:  black solid 2px;
+	border-radius: solid 2px;
+	margin: 2px;
+	cursor: pointer;
+  }
+
+  .delete {
+	display: block;
+	background-color:#99b529;
+	width: 60px;
+	height: 20px;
+	line-height: 20px;
+	margin: auto;
+	color: #fff;
+	position: relative;
+	border: none;
+	text-align: center;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	cursor: pointer;
+	border-radius: 5px;
+  }
+
+  .delete span {
+	width: 72%;
+	line-height: inherit;
+	font-size: 8px;
+	text-transform: uppercase;
+	left: 0;
+  }
+  .delete span:after {
+	content: '';
+	background-color: #100108;
+	width: 2px;
+	height: 70%;
+	position: absolute;
+	top: 15%;
+	right: -1px;
+  }
+  .delete:hover {
+	opacity: 0.9;
+  }
+  input[type='datetime-local'], input,
+  select {
+	padding: 5px;
+	margin: 5px;
+	border: 2px solid black ;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	width: 200px;
+  }
+
+  input[type='text']:focus {
+	border-color: black;
+  }
+
+  input[type='submit'] {
+	margin: 15px 0 30px 0;
+	padding: 5px 15px;
+	cursor: pointer;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	background-color: black;
+	color:#99b529;
+	border: 2px solid black;
+	width: 100px;
+  }
+
+  input[type='submit']:hover {
+	border: 2px solid black ;
+	background-color:black;
+	color: #99b529;
+
+  }
+
+  .table {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+  }
+  .title {
+	text-align: center;
+	font-size: 18px;
+	color: black;
+	font-weight: bold;
+	background-color: #99b529;
+  }
+  .tbl td {
+	text-align: center;
+	background-color: #99b529;
+	color: black;
+  }
+  .tb1 {
+	border-spacing: 1px;
+	font-size: 15px;
+	background-color:#99b529;
+	color: black;
+  }
+  .tb1 th {
+	text-align: left;
+	padding: 0 5px 0 5px;
+  }
+  .td1 {
+	text-align: right;
+	background-color: rgba(0, 0, 0, 0.253);
+	padding: 0 5px 0 5px;
+  }
+  .details {
+	background-color: rgba(0, 0, 0, 0.0025);
+  }
+  .forms {
+	display: inline-block;
+	width: 500px;
+	color: black;
+	border-radius: 10px;
+	background-color: #99b529;
+	margin-top: 20px;
+  }
+  .remove {
+	margin: 50px;
+	padding: 5px 15px;
+	cursor: pointer;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	background-color: #99b529;
+	color: black;
+	border: 2px solid #99b529;
+	width: 200px;
+  }
+
+  .remove:hover {
+	border: 4px solid  #99b529;;
+	background-color:  #99b529;;
+	color: black;
+  }
+
+.button-ticket{
+	border: #99b529 2px solid;
+	background-color: #99b529;
+}
+
+  .ticket {
+	margin: auto;
+	display: inline-block;
+	cursor: pointer;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	background-color:#99b529;
+	color: black;
+	border: 2px solid black;
+	width: 100px;
+  }
+
+  .ticket:hover {
+	border: 4px solid #99b529;
+	background-color:#99b529;
+	color: black
+  }
